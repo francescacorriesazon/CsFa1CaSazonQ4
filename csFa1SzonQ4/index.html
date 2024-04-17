@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form onsubmit="return myFunction();">
+        <fieldset>
+            <legend>Sign Up sheet</legend>
+            <label for="name">Name: </label>
+            <input type="text" id="name" onblur="FunctionHighlightingName()"><br>
+            <label for="password">Password: </label>
+            <input type="password" id="pWord" name="password" onblur="FunctionHighlightingPassword()"><br>
+            <label for="age">Enter your age: </label>
+            <input type="number" id="age" name="age" min="1" max="100" onblur="FunctionHighlightingAge()"></br>
+            <label for="comments">Bio: </label>
+            <textarea id="Bio" name="Bio" rows="4" cols="50" onblur="FunctionHighlightingBio()"> </textarea>
+            <fieldset>
+                <legend>Gender:</legend>
+                <input type="radio" id="Male" name="Gender" value="Male">
+                <label for="Male">Male</label>
+                <input type="radio" id="Female" name="Gender" value="Female">
+                <label for="Female">Female</label>
+                <input type="radio" id="pntm" name="Gender" value="pntm">
+                <label for="pntm">Prefer not to mention</label>
+
+            </fieldset>
+            <br>
+            <input type="submit" value="Submit form">
+            <input type="reset" value="Reset">
+        </fieldset>
+    </form>
+    <p id="output"></p>
+
+    <script>
+        function FunctionHighlightingName() {
+            var x = document.getElementById("name").value;
+            if (x == "") {
+                document.getElementById('name').style.borderColor = "red";
+            }
+            else {
+                document.getElementById('name').style.borderColor = "green";
+            }
+        }
+        function FunctionHighlightingPassword() {
+            var x = document.getElementById("pWord").value;
+            if (x == "") {
+                document.getElementById('pWord').style.borderColor = "red";
+            }
+            else {
+                document.getElementById('pWord').style.borderColor = "green";
+            }
+        }
+
+        function FunctionHighlightingAge() {
+            var x = document.getElementById("age").value;
+            if (x == "") {
+                document.getElementById('age').style.borderColor = "red";
+            }
+            else {
+                document.getElementById('age').style.borderColor = "green";
+            }
+        }
+        function FunctionHighlightingBio() {
+            var x = document.getElementById("Bio").value;
+            if (x == "") {
+                document.getElementById('Bio').style.borderColor = "red";
+            }
+            else {
+                document.getElementById('Bio').style.borderColor = "green";
+            }
+
+        }
+        function myFunction() {
+            var name = document.getElementById("name").value;
+            var pWord = document.getElementById("pWord").value;
+            var age = document.getElementById("age").value;
+            var Bio = document.getElementById("Bio").value;
+            var gender = document.querySelector('input[name="Gender"]:checked').value;
+
+            document.getElementById("output").innerHTML =
+
+                "Your Name is " + name +
+                ". Your password is " + pWord +
+                ". You are " + age + " years old." +
+                " Your Bio reads: " + Bio +
+                ". And, you are a " + gender + ".";
+
+            return false;
+        }
+
+    </script>
+
+
+    <style>
+ 
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #ffd5e46f;
+        margin: 0;
+        padding: 0;
+        
+    }
+
+    form {
+      margin-right: 300px;
+      margin-left: 300px;
+      border: 1px solid #ff8fc7; 
+
+    }
+
+    legend {
+      font-size: large ;
+      font-weight: bold;
+      color: #ff8fc7;;
+    }
+
+    label {
+   display: block;
+   color: #ff8fc7;;
+    }
+
+
+    input[type="submit"],
+    input[type="reset"] {
+        background-color: rgb(255, 255, 255);
+        border: 2px solid #ff8fc7; 
+        border-radius: 10px; 
+        border-width: 1px;
+        box-sizing: border-box;
+      
+    }
+
+    input[type="submit"]:hover,
+    input[type="reset"]:hover {
+        background-color: #ffc5e2; 
+        border: 2px solid #ff8fc7; 
+        border-radius: 10px; 
+        border-width: 1px;
+        box-sizing: border-box;
+    }
+
+    #output {
+        font-family: 'Times New Roman', Times, serif;
+        justify-content:center;
+        margin-left: 250px;
+        margin-right: 250px;
+    }
+
+
+    </style>
+
+</body>
+
+</html>
+
